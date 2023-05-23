@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Template robot main suite.
+Documentation     Template robot main suite, now also tracked through git.
 Library     RPA.Browser.Selenium    auto_close=${FALSE}    
 Library    RPA.HTTP
 Library    RPA.Excel.Files
