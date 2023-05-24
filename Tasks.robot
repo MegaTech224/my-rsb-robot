@@ -6,9 +6,6 @@ Library    RPA.Excel.Files
 Library    RPA.PDF
 
 *** Tasks ***
-Test task
-    Log    Some test
-
 Insert the sales data for the week and export it as a pdf
     [Teardown]    Log out and close the browser
     Open the intranet website
@@ -36,10 +33,10 @@ Fill and submit the form for one person
     Click Button    Submit
 
 Download The Excel File
-    Download    https://robotsparebinindustries.com/SalesData.xlsx    overwrite=${True}    target_file=${OUTPUT_DIR}${/}SalesData.xlsx
+    Download    https://robotsparebinindustries.com/SalesData.xlsx    overwrite=${True}    target_file=${OUTPUT DIR}${/}SalesData.xlsx
 
 Fill the form using the data from the Excel file
-    Open Workbook    SalesData.xlsx
+    Open Workbook    ${OUTPUT DIR}${/}SalesData.xlsx
     @{sales_reps}    Read Worksheet As Table    header=${True}
     Close Workbook
     FOR    ${row}    IN    @{sales_reps}
@@ -47,12 +44,12 @@ Fill the form using the data from the Excel file
     END
 
 Collect the results
-    Screenshot    //div[contains(@class, 'sales-summary') and contains(.//span, 'Active sales people')]    ${OUTPUT_DIR}${/}sales-summary.png
+    Screenshot    //div[contains(@class, 'sales-summary') and contains(.//span, 'Active sales people')]    ${OUTPUT DIR}${/}sales-summary.png
 
 Export the table as a PDF
     Wait Until Element Is Visible    //div[contains(@class, 'sales-summary') and contains(.//span, 'Active sales people')]
     ${sales_results_html}    Get Element Attribute    //div[contains(@id,'sales-results')]    outerHTML
-    Html To Pdf    ${sales_results_html}    ${OUTPUT_DIR}${/}sales_results.pdf
+    Html To Pdf    ${sales_results_html}    ${OUTPUT DIR}${/}sales_results.pdf
 
 Log out and close the browser
     Click Button    Log out
