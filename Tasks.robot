@@ -10,6 +10,7 @@ Insert the sales data for the week and export it as a pdf
     [Teardown]    Log out and close the browser
     Open the intranet website
     Log in
+    Download The Excel File
     Fill the form using the data from the Excel file
     Collect the results
     Export the table as a PDF
