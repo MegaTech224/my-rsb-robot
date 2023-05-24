@@ -17,7 +17,7 @@ Insert the sales data for the week and export it as a pdf
     
 *** Keywords ***
 Open the intranet website
-    Open Browser    https://robotsparebinindustries.com/    edge    
+    Open Available Browser    https://robotsparebinindustries.com/
 
 Log in
     Input Text    username    maria
